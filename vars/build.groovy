@@ -1,4 +1,4 @@
-def call(){
+def call(String image, String tag){
   echo "This is Build stage"
-  sh 'docker build -t notes-app:latest .'
+  sh 'docker build -t ${image}:${tag} .'
 }
