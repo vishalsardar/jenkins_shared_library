@@ -5,12 +5,12 @@ def call(String imagge, String tag){
       usernameVariable: 'dockerHubUser',
       passwordVariable: 'dockerHubPass'
   )]) {
-      sh '''
+      sh """
           echo "Logging in to DockerHub"
           docker login -u "$dockerHubUser" -p "$dockerHubPass"
           docker image tag notes-app:latest "$dockerHubUser/$imagge:$tag"
           docker push "$dockerHubUser/$image:$tag"
           echo "Login successfull, Image Pushed to DockerHub"
-      '''
+      """
   }
 }
